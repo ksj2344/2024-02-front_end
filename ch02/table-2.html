@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠팡</title>
+    <style>
+        table{ border: 1px solid #ccc; border-collapse: collapse;}
+        table th, td { border: 1px solid #ccc; padding: 5px;}
+        .kg-3{ background-color: rgb(234, 227, 240);}
+        .cnt { background-color: aqua ;}
+    </style>
+</head>
+<body>
+    <h2>상품구성</h2>
+    <table>
+        <thead>
+            <tr><!--table row-->
+                <th>용도</th> <!--table header -->
+                <th>중량</th> <!--table data -->
+                <th>개수</th>
+                <th>가격</th>  <!-- td쓰면 조금더 얇게 나옴. 근데 th가 제목이라는 시멘틱태그라 얘도 css로 굵기 설정해야함.-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td class="kg-3">3kg</td>
+                <td class="cnt">11~16과</td>
+                <td>35,000원</td>
+            </tr>
+    
+            <tr>
+
+                <td>5kg</td>
+                <td colspan="2">18~26과 52,000원</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td class="kg-3">3kg</td>
+                <td class="cnt">11~16과</td>
+                <td>30,000원</td>
+            </tr>
+
+            <tr>
+                
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>51,000원</td>
+            </tr>
+        </tbody>
+        <caption>선물용과 가정용 상품 구성</caption>
+    </table>
+</body>
+</html>

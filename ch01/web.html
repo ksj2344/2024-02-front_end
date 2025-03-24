@@ -1,0 +1,30 @@
+<!-- 주석은 이렇게 이렇게 씀 
+
+HTML : HyperText Markup Language
+     태그(Tag), 태그는 <태그명> 작성, <태그></태그> 닫는 테그도 존재한다.
+     <태그 속성="속성값"> 속성은 태그에 존재하는 속성은 의미가 있지만 존재하지 않는 속성은 의미가 없다.
+     의미가 있고 없고는 브라우저가 이해하는 속성인지 아닌지를 의미한다.
+     사용자 정의 속성을 만들 수 있으나 브라우저는 이해하지 못한다.
+     <html>태그는 <head>, <body> 태그의 부모 태그이다. 태그들 간의 관계(소속여부)가 있다.
+
+-->
+<!DOCTYPE html> <!-- 이게 있다면 html 5로 작성이 되었단 소리. 표준을 따른다는 뜻. -->
+<html lang="ko" ddd="123"> <!-- 태그 속성="값"으로 표기함. 여기서 lang은 사용언어라는 뜻.-->
+<head> <!-- head는 브라우저에게 정보를 전달하는 역할을 하고(혹은 검색엔진에 걸리게) 실제 영향을 끼치는건 body-->
+    <meta charset="UTF-8"> <!-- 태그는 열었다면 닫아줘야하지만 단독으로 쓸 수 있는 테그들도 있음.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--width=device-width : 디바이스에 가로크기 맞추다. initial-scale=1.0 : 최소 글자 크기 조정-->
+    <title>ch01 - web.html</title>
+</head>
+<body>
+    <div>
+      <div>
+        <div>A</div>
+      </div>
+      <div>
+        <div>B</div>
+      </div>
+    </div>
+</body>
+</html>

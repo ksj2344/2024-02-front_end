@@ -1,0 +1,50 @@
+<!-- structure.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!--보통 여기는 서비스명을 적어둠. 탭 제목.-->
+</head>
+<body>
+    <!-- 
+        id는 document(문서)에서 유일값, 똑같은 아이디값 두번 이상 사용하면 안된다.
+        container 아이디값을 사용했기 때문에
+        이 문서 안에서는 container 또 사용하면 안된다. 
+        
+        시맨틱(Semantic) 태그: 의미가 있는 태그이며 검색엔진에게 정보를 주기위한 용도이며 SEO이다. nav main header가 있음.
+        SEO(Search Engine Optimization): 검색 엔진 최적화. 검색엔진에서 웹사이트가 상위에 노출되게 하는 작업
+        div와 nav 차이: 시맨틱이 있고 없고. 화면에 보이는건 차이없음.
+    -->
+    <div id="container">
+        <div>
+            <!-- hn태그는 시멘틱 태그로 사용해야 한다. 
+                글자 크기 변경용으로 사용하는 것이 아니라 제목, 부제목 정도의 개념. 검색엔진에도 영향 준다.
+                크기는 추후 CSS로 조정함. -->
+            <h1>골드박스</h1>
+            <h2>h2</h2>
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5>h5</h5>
+            <h6>h6</h6>
+        </div>
+        <header>
+            <nav>
+
+            </nav>
+            <section>
+
+            </section>
+        </header>
+        <main>
+            <section>
+                <!--section: 어떤 태그의 부모역할-->
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+</html>
