@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type</title>
+</head>
+<body>
+    <form action = "/api/add" method="get">
+        <div><label>이름: <input type="text" name="nm" value="홍길동"></label></div>
+        <div><span><label for="input-age">나이:</label></span>
+            <span><input type="text" name="age" id="input-age"></span>
+        </div> <!-- span: 클릭시 입력창 굵게 표시-->
+        
+        <div>
+            <input type="submit" value="전송">
+            <button>전송2</button>
+            <input type="reset" value="리셋">
+        </div>
+    </form>
+    <hr>
+    <form action = "/api/add" method="post">
+        <div>이름: <input type="text" name="nm" value="홍길동"></div>
+        <div>나이: <input type="text" name="age"></div>
+        
+        <div>
+            <input type="submit" value="전송">
+            <button>전송2</button>
+            <input type="reset" value="리셋">
+        </div>
+    </form>
+    <form action="/api/dddd" method="get">
+        <hr>
+        <h2>input 종류</h2>
+        <div><input type="button" value="버튼명"></div>
+        <div>
+            <label>농구 <input type="checkbox" name="sports" value="1" checked></label>
+            <label>배구 <input type="checkbox" name="sports" value="2"></label>
+            <label>축구 <input type="checkbox" name="sports" value="3"></label>
+        </div>  <!-- lable을 붙이면 배열로 날아감 -->
+
+        <div><input type="color" name="seat_color"></div>
+        
+        <div><input type="date" name="start_date" value="2025-10-10"></div>
+        <div><input type="datetime" name="start_datetime"></div>
+        <div><input type="datetime-local" id="id_start_datetime" name="start_datetime_local" value="2025-10-10 22:10"></div>
+        <div><input type="email" name="email"></div>
+        <div><input type="file" name="all"></div> <!-- 모든 파일 첨부 가능함-->
+        <div><input type="file" name="pic" accept="image/*"></div> <!--이미지만 첨부 가능함-->
+        <div><input type="hidden" name="hidden" value="12"></div>
+        <div><input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcawbHeggoypLPB64yag5-BP-v_qgKn8O4WQ&s"></div>
+        <div><input type="month" name="start_mon"></div>
+        <div><input type="number" name="age"></div>
+        <div><input type="password" name="pw"></div>
+        <div>
+            <div>학년</div>
+            <label><input type="radio" name="grade" value="1" checked>1학년 </label>
+            <label><input type="radio" name="grade" value="2">2학년 </label>
+            <label><input type="radio" name="grade" value="3">3학년 </label>
+        </div>
+        <div>
+            <select name = "blood_type">
+                <option>A형</option>
+                <option>B형</option>
+                <option>AB형</option>
+                <option>O형</option>
+            </select>
+        </div>
+
+        <div>
+            <select name = "blood_type2">
+                <option value="01">A형</option>
+                <option value="02">B형</option>
+                <option value="03">AB형</option>
+                <option value="04">O형</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="text" list="id_mbti"><br>
+            <datalist id="id_mbti">
+                <option>INFJ</option>
+                <option>ENFJ</option>
+                <option>INTJ</option>
+                <option>ENTJ</option>
+                <option>ENFP</option>
+                <option>INFP</option>
+                <option>ENTP</option>
+                <option>INTP{</option>
+            </datalist>
+        </div>
+
+        <div><input type="submit" value="전송"></div>
+    </form>
+
+    <!-- window.addEventListener가 보내는 값은 두가지. 두번재 function()은 자바로 따지면 람다식 
+        홑따옴표('')대신 백틱(``)쓰면 안에 상수로 지정한 값을 넣을 수 있음.-->
+<script>
+        function must2digit(item) {
+            return String(item).padStart(2, '0');   
+        }
+
+        window.addEventListener('load', () => {
+            console.log('load');
+            const $idStartDatetime = document.querySelector('#id_start_datetime');
+            if($idStartDatetime) {
+                const now = new Date();
+                const year = now.getFullYear();
+                const mon = now.getMonth() + 1;
+                const day = now.getDate();
+                const hour = now.getHours();
+                const min = now.getMinutes();
+
+                $idStartDatetime.value = `${year}-${must2digit(mon)}-${must2digit(day)}T${must2digit(hour)}:${must2digit(min)}`;
+            }
+
+        });
+        //
+        /*
+        
+        */
+
+
+    </script>
+</body>
+</html>
