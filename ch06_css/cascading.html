@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading</title>
+    <style>
+        h2 {color: blueviolet !important;} /* important로 설정하면 인라인보다 우선순위가 높아짐. 보통 임시로 사용함*/
+        h2 {color: brown;}
+        h1 {color: brown; font-weight: 100;}
+        h1 {color: lightblue;} /*제일 마지막에 덮어쓰기 한 것을 우선 적용, 추가 설정 안한 것은 그 위에서 설정한대로 */
+        .font-red {color: red;}
+        .font-size-20{ font-size: 20px ;}
+        .bg-green {background-color: aquamarine;}
+    </style>
+</head>
+<body>
+    <h2>Cascading.html</h2>
+    <h1 style="color:orangered;">레드향1</h1> <!--인라인 스타일이 가장 우선순위가 높음-->
+    <h1>레드향2</h1> 
+    <div class="font-red font-size-20 bg-green"> <!--여기서 설정했다면 이 div의 자식도 설정됨. 이것이 cascade-->
+        <div>
+            <div>
+                <span style="background-color:white">3-depth</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

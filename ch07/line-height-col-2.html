@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>line-height-col-2</title>
+    <style>
+        .heading {
+            height: 100px;
+            color: rgb(255,255,255);
+            background-color: #222;
+            text-align: center;
+            line-height: 6;
+            margin-bottom: 20px;
+        }
+        .heading2 {
+            height: 100px;
+            color: rgb(255,255,255);
+            background-color: #222;
+            display: flex;
+            justify-content: space-evenly; /*space-evenly: 균등한 */
+            align-items: start;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .heading3 {
+            height: 100px;
+            color: rgb(255,255,255);
+            background-color: #222;
+            display: flex;
+            justify-content: space-between; /*space-between: 끝에 붙이고 사이가 균등. around는 바깥도 균등 */
+            align-items: start;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h2>line-height-col-2</h2>
+
+    <div class="heading">HTML</div>
+
+    <div class="heading2">
+        <div>HTML</div>
+        <div>HTML</div>
+    </div>
+
+    <div class="heading3">
+        <div>HTML</div>
+        <div>HTML</div>
+        <div>HTML</div>
+    </div>
+</body>
+</html>

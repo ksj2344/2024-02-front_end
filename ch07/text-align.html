@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-align</title>
+    <style>
+        div{margin-bottom: 20px; background-color: antiquewhite;}
+        .container > div:first-of-type{text-align: center; background-color: blueviolet; color: aliceblue; line-height: 60px;} 
+        /*부모>태그:first-of-type 자식들 중 태그로 지정한 첫번째 자식을*/
+        
+        .container > p:first-child{background-color: aquamarine;} /*적용 안됨*/
+        /*부모>태그:first-child 부모의 첫자식이 태그에 맞다면(if) 실행 */
+        
+        /*아래 세 라인은 두번째 글을 적용함*/
+        .container > p:nth-child(2){text-align: right; color: red;} 
+        .container > p:first-of-type{text-align: right; color: cadetblue;line-height: 32px;}
+        .container > p:nth-of-type(1){text-align: right; color: blue; line-height: 2.0;} 
+        /* .container > p:nth-of-type(1) 자식들 중 태그로 지정한 자식들을 */
+        
+        .container > div:nth-child(3){ line-height: 0.7;}
+    </style>
+
+    <!-- line-height:글 간격, margin: 글상자간 간격 padding: 외부 간격-->
+</head>
+<body>
+    <h2></h2>
+    <div class="container">
+        <div>1. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <p>2. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <div>3. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+</body>
+</html>
