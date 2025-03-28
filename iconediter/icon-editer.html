@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>icon-editer</title>
+    <style>
+        table { border-collapse: collapse; margin-top: 5px;}
+        td{border: 1px solid gray; width: 15px; height: 15px;}
+    </style>
+</head>
+<body>
+    <script>
+        // load: 내용이 전부 로드 되면 한번 호출한다.
+        window.addEventListener('load', () =>{
+            createIconEditor(document.body, 16, 16);
+        });
+
+        function createIconEditor(parent, nx, ny){
+            const $color =elt('input', {type : 'color'});
+            parent.appendChild($color);
+
+            //input-button(value="모두 삭제")
+            const clear =elt('input', {type: 'button', value: '모두 삭제'});
+            parent.appendChild(clear);
+
+            //table
+            const table = elt('table');
+            const cells = []; //td 요소를 저장하는 배열
+            for(let i=0; i<ny; i++){
+                const tr = elt('tr');
+                table.appendChild(tr);
+
+                for(let i2=0; i2<nx; i2++){
+                    const td = elt('td');
+                    td.addEventListener('click', e=> {
+                        e.target.style.backgroundColor = $color.value;
+                    });
+                    cells.push(td);
+                    tr.appendChild(td);
+                }
+            }
+            parent.appendChild(table);
+        }
+
+        //엘리먼트를 생성하는 함수
+        //name: 태그명, attr: 속성 객체
+        function elt(name, attrs) {
+            const node= document.createElement(name);
+            if(attrs){
+                for(const attr in attrs){
+                    if(attrs.hasOwnProperty(attr)){
+                        node.setAttribute(attr, attrs[attr]); //setAttribute(a, b) 객체에 a라는 속성값이 없어도 a를 넣는다.
+                        // node[`${attr}`] = attrs[attr];
+
+                        // node.id = '값';
+                        // node['id'] = '값';
+                    } 
+                }
+            }
+
+            for(let i=2; i<arguments.length; i++){
+                const child = arguments[i];
+                if( typeof child === 'string' ){
+                    child = document.createTextNode(child);
+                }
+                node.appendChild(child);
+            }
+            return node;
+        }
+
+    </script>
+</body>
+</html>

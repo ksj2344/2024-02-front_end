@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script-1</title>
+</head>
+<body>
+    <h2>script-1</h2>
+    <h1 id="heading">자바스크립트</h1>
+    <div id="text">위 텍스트를 클릭하여 보세요.</div>
+    <div id="text2">위 텍스트를 클릭하여 보세요.</div>
+    
+    <script>
+        const $heading1 = document.querySelector('div');  /*div태그를 쓴 가장 첫번째 값. null 혹은 1*/
+        const $heading2 = document.querySelectorAll('div');  /*div태그를 가진 리스트(무조건 리스트)*/
+
+        const $heading = document.querySelector('#heading');
+        // $heading.onclick =function(){
+        //     alert('"안녕"')
+        //     alert("'안녕'")
+        //     $heading.style.color = 'red';
+        // }  옛날방식
+        
+        // 여기서 e(매개변수)는 $heading을 의미하고 넣을수도 안넣을수도 있음. 안넣으면 null됨.
+        $heading.addEventListener('click', (e) => {
+            console.log(e.target.style.color)
+            e.target.style.color = 'red';
+        });
+    </script>
+</body>
+</html>

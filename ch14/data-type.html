@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data-type</title>
+</head>
+<body>
+    <script>
+        /*  
+            0. 타입 확인
+                - typeof 변수/상수
+                -typeof(변수/상수)
+            1. 기본 유형
+                - 숫자형(Number) : 2000, 20.1, 111, 11.9999
+                                  0만 false, 나머지는 true로 취급한다.
+                - 문자열(String) : 'ddd', '132'
+                                  ''은 false, 나머지는 true로 취급한다. 띄어쓰기도 포함함.
+                - 논리형(Bool) : true, false
+        */
+       const n1 = 200.11; 
+       if(n1){
+            console.log('n1은 0이 아닙니다.'); 
+       }
+       console.log(typeof n1);
+       console.log(typeof(n1));
+
+       const s1 = 'ddd';
+       console.log(typeof s1);
+
+       const b1 = true;
+       console.log(typeof b1);
+
+       /*
+            2. 복합 유형
+            - 배열 : [] , 주소값 있으면 true 취급
+            - 객체 : {} , 주소값 있으면 ture 취급
+
+       */
+      const arr = [];
+      console.log(typeof arr);
+      console.log(Array.isArray(arr));
+
+      const obj = {};
+      console.log(typeof obj);
+      console.log(Array.isArray(obj));
+      if(obj){
+            console.log('obj는 주소값이 있다.'); 
+       }
+
+      /*
+            3. 특수 유형
+            - undefined : 변수 선언 후 값이 지정되지 않았을 때
+            - null : 값이 유효하지 않았을 때
+            특수 유형은 null이든 undefined이든 false 취급
+       */
+      let a;
+      console.log(a);
+      console.log(a === undefined);
+
+      const b = null;
+      console.log(b);
+      console.log(b === undefined);
+      console.log(b === null);
+    </script>
+</body>
+</html>

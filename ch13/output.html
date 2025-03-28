@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-alert">alert</div>
+    <div id="div-prompt">prompt</div>
+    <div id="div-console">console</div>
+    <div id="div-confirm">confirm</div>
+
+    <script>
+        const $divAlert = document.querySelector('#div-alert');
+        const $divPrompt = document.querySelector('#div-prompt');
+        const $divConsole = document.querySelector('#div-console');
+        const $divConfirm = document.querySelector('#div-confirm');
+
+        $divAlert.addEventListener('click', () => {
+            alert('경고창 내용!!');
+        })
+
+        $divConsole.addEventListener('click', () => {
+            console.log('콘솔은 개발자가 보기 위한 내용');
+            console.error('콘솔은 개발자가 보기 위한 내용');
+            console.info('콘솔은 개발자가 보기 위한 내용');
+            console.warn('콘솔은 개발자가 보기 위한 내용');
+        })
+
+        $divPrompt.addEventListener('click' , () => {
+            const gender = prompt ('성별을 입력해 주세요.');
+            console.log(`gender: ${gender}`); // 문자열 안에 변수의 값을 넣고싶다면 백틱으로 감쌀 것.
+        })
+
+        $divConfirm.addEventListener('click', () => {
+            if(confirm('삭제하시겠습니까?')){
+                console.log('삭제 처리');
+            }
+        });
+    </script>
+</body>
+</html>
