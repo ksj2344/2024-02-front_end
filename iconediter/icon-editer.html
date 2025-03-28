@@ -17,14 +17,33 @@
             createIconEditor(document.body, 16, 16);
         });
 
+        const convertRgbToHex = rgb =>`#${rgb.match(/\d+/g).map(x => (+x).toString(16).padStart(2,0)).join('')}`;        
+
+        const getHEX = (RGB) => {  
+            const colors = RGB.replaceAll(' ', '').replace('rgb(', '').replace(')', '').split(',');
+            
+            return '#' + (RGB && colors
+                            .map(color => Number(color)
+                            .toString(16)
+                            .padStart(2, '0'))
+                            .join('')
+                        );  //join('값') 값을 사이에 두고 문자열을 연결 
+                        //.padStart(2, '0')) 두자리만들건데 비면 0으로 채움.
+        } 
+
         function createIconEditor(parent, nx, ny){
-            const $color =elt('input', {type : 'color'});
+            //input-color
+            const $color = elt('input', { type: 'color' });
             parent.appendChild($color);
 
             //input-button(value="모두 삭제")
-            const clear =elt('input', {type: 'button', value: '모두 삭제'});
-            parent.appendChild(clear);
+            const $clear = elt('input', { type: 'button', value: '모두 삭제'});
+            $clear.addEventListener('click', () => {
+                cells.forEach(item => item.style.backgroundColor = '#fff');
+            });
+            parent.appendChild($clear);
 
+            
             //table
             const table = elt('table');
             const cells = []; //td 요소를 저장하는 배열
@@ -35,7 +54,16 @@
                 for(let i2=0; i2<nx; i2++){
                     const td = elt('td');
                     td.addEventListener('click', e=> {
-                        e.target.style.backgroundColor = $color.value;
+                        
+                        // 값이 없거나 흰색이거나 그라운드 컬러가 선택한 컬러와 다르다면 넣을 것 아니면 뺌
+                        if(e.target.style.backgroundColor !== '' 
+                        && e.target.style.backgroundColor !== 'rgb(255, 255, 255)' 
+                        && convertRgbToHex(e.target.style.backgroundColor) === $color.value) {
+                            e.target.style.backgroundColor = ''; 
+                        } else {
+                            e.target.style.backgroundColor = $color.value; 
+                        }
+                        // 여기서 e.target.style.backgroundColor는 rgb를 주고 $color.value는 hex값을 주므로 변환필요
                     });
                     cells.push(td);
                     tr.appendChild(td);

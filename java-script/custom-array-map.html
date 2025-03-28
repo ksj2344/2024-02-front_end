@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayList</title>
+</head>
+<body>
+    <script>
+        const arr = [10, 20, 30];
+        arr.push(40);
+        const arr2= arr.map((item, idx, obj )=> {
+            console.log(idx);  // 몇번째 회전인지 찍어줌.
+            console.log(obj);  // this를 찍어줌   
+            return item*2;
+        });
+        console.log(arr2);
+        
+        const myArr = {
+            '0': 10,
+            '1': 20,
+            '2': 30,
+            'length': 3,
+            'push' : function(val){
+                this[this.length++] = val;
+            },
+            'map':function(callback){
+                const temp = [];
+                for(let i=0; i<this.length; i++){
+                    temp.push(callback(this[i], i, this));
+                }
+                return temp;
+            } // 여기서 callback이 담은 것은 item => {return item*2;}
+        };
+        myArr.push(40);
+        const myArr2=myArr.map(item => {return item*2;});
+        console.log(myArr2);
+    </script>
+</body>
+</html>
