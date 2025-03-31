@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        //인자 1개 : 함수 주소값
+        const p1 = new Promise( function(resolve, reject){
+            const isSuccess = true;
+            setTimeout(function() { 
+                if(isSuccess){
+                    resolve(100);
+                }else{
+                    reject('에러발생!');
+                }
+            }, 100);
+        });
+
+        p1.then(function(date){
+            console.log(`data: ${data}`);
+        });
+        
+        p1.catch(function(err){
+            conlose.log(`err: ${err}`);
+        });
+
+        console.log("-----------");
+        function cb(resolve, reject){
+            resolve(999);
+        }
+
+        const p2=new Promise(cb);
+        p2.then( function(data2){
+            console.log(`data2: ${data2}`);
+        }).catch(function(e){
+            conlose.log(`err2: ${err2}`);
+        });
+    </script>
+</body>
+</html>
